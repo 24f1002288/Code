@@ -1,37 +1,32 @@
-def write_number_grid(path:str, m:int, n:int):
-    matrix = [[] for i in range(m)] # [[],[],[],[],[]]
-    for i in range(0,m*n):
-        # 0//3 = 0
-        # 1//3 = 0
-        matrix[i//n].append(str(i+1))
-    
-    string_matrix = [" ".join(row) for row in matrix]
+# with open("test.txt","r") as f:
+#     # words = [word.strip("\n")for word in f.readline().split(",")]
+#     words = f.readline().strip("\n").split(",")
+#     text = f.read()
+#     # a = "abc\n"[:-1]
+#     # print(a == "abc")
+#     for word in words:
+#         text = text.replace(word,"*"*len(word))
+#     print(text)
 
-    with open(path,"w") as file:
-        file.write( "\n".join(string_matrix))
-   
+# with open("test.txt","r") as f:
+#     lines  = [line.strip() for line in f.readlines()]
+#     print(lines)
+#     counter = 0
+#     for line in lines:
+#         if line != "" :
+#             counter += 1
+#             print(f"{counter}. {line}")
 
-from datetime import datetime
-def log_message(filename:str,s2:str):
-  with open(filename,"a") as file:
-    file.write(f"{datetime.now()} - {s2}" + "\n")
+# with open("test.txt","r") as f:
+#     lines = f.readlines()
+#     max_len = max([len(line.strip("\n")) for line in lines])
+#     print("*"*(max_len+4))
+#     for line in lines:
+#         print(f"* {line.strip("\n")}{" "*(max_len - len(line.strip("\n")))} *")
+#     print("*"*(max_len+4))
 
 
-dict={}
-def read_config(filename: str):
-  with open(filename,"r") as file:
-    for line in file:
-      s1,s2=line.strip().split("=")
-      dict[s1]=s2
-    return dict   
+l = list(range(100))
 
-def write_config(filename,dict):
-  with open(filename,"w") as file:
-     for key,val in dict.items():
-        file.write(f"{key}={val}\n")
-
-def find_and_replace(input_file,output_file,old_word,new_word):
-  with open(input_file,"r")as file , open(output_file,"w") as f:
-    file_content=file.read()
-    update_content=file_content.replace(old_word,new_word)
-    f.write(update_content)
+modified_list = [elem ** 2 if elem % 2 == 0 else elem ** 3 for elem in l ]
+print(modified_list)
