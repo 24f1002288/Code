@@ -160,10 +160,10 @@ with open("test.txt", "r") as file:
     text = file.read()
     words = text.split(" ")
     out = ""
-    for i in range(len(words)):
+    for i in range(len(words)-1):
         out += words[i] + str(i+1)
-
-    print(out[:-1])
+    out += words[-1]
+    print(out)
 
 
 
